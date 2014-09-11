@@ -1,0 +1,36 @@
+h3 {{title}}
+.row
+  .panel.panel-default
+    .panel-body
+      form(role='form', novalidate, name='taskForm')
+        .form-group
+          label(for='taskName') New Task Name
+          input#taskName(type='text', required,ng-model='task.name', ng-minlength='3', autofocus)
+        .form-group
+          label(for='taskDue') Due Date
+          input#taskDue(type='date', required,ng-model='task.due')
+        .form-group
+          label(for='taskPriority') Choose Priority
+          select(ng-model='task.priority', required)
+            option(ng-repeat='p in priorities', value='{{p._id}}') {{p.name}}
+      button.btn.btn-primary(ng-show='taskForm.$valid', ng-click='add()') Add Task
+.panel.panel-default
+  .panel-body
+    .row
+      .col-xs-6
+        h2 Tasks
+        table.table.table-bordered
+          thead
+            tr
+              th(ng-click='sort = name') Tasks
+              th(ng-click='sort = priority.name') Priority
+              th(ng-click='sort = due') Due
+              th(ng-click='sort = isComplete') Complete?
+          tbody
+            tr(ng-repeat='t in tasks | orderBy:sort', ng-style='{"background-color":t.priority.color}')
+              td {{t.name}}
+              td {{t.priority.name}}
+              td {{t.due | date : 'mediumDate' }}
+              td: input(type='checkbox', ng-model='t.isComplete')
+pre {{tasks | json}}
+

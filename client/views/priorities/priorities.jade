@@ -1,0 +1,34 @@
+h3 {{title}}
+.row
+  .panel.panel-default
+    .panel-body
+      form(role='form', novalidate, name='priorityForm')
+        .form-group
+          label(for='priorityName') New Priority Name
+          input#priorityName(type='text', required,ng-model='priority.name', ng-minlength='3', autofocus)
+        .form-group
+          label(for='priorityColor') New Priority Color
+          input#priorityName(type='color', required,ng-model='priority.color')
+      button.btn.btn-primary(ng-show='priorityForm.$valid', ng-click='add()') Add Priority
+.panel.panel-default
+  .panel-body
+    .row
+      .col-xs-3
+        h2 Priorities
+        .radio
+          label
+            input(name='sort', type='radio', ng-model='sort', value='name')
+            span Ascending
+        .radio
+          label
+            input(name='sort', type='radio', ng-model='sort', value='-name')
+            span Descending
+        table.table.table-bordered
+          thead
+            tr
+              th Priority
+              th Color
+          tbody
+            tr(ng-repeat='p in priorities | orderBy:sort', ng-style='{"background-color":p.color}')
+              td {{p.name}}
+              td {{p.color}}

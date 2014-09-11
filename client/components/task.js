@@ -4,8 +4,8 @@
   angular.module('quiktask')
   .factory('Task', ['$http', function($http){
 
-    function create(priority){
-      return $http.post('/tasks', priority);
+    function create(task){
+      return $http.post('/tasks', task);
     }
 
     function all(){

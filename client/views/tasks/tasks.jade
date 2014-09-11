@@ -22,15 +22,16 @@ h3 {{title}}
         table.table.table-bordered
           thead
             tr
-              th(ng-click='sort = name') Tasks
-              th(ng-click='sort = priority.name') Priority
-              th(ng-click='sort = due') Due
-              th(ng-click='sort = isComplete') Complete?
+              th(ng-click='sort = "name"') Tasks
+              th(ng-click='sort = "priority.name"') Priority
+              th(ng-click='sort = "due"') Due
+              th(ng-click='sort = "isComplete"') Complete?
           tbody
             tr(ng-repeat='t in tasks | orderBy:sort', ng-style='{"background-color":t.priority.color}')
               td {{t.name}}
               td {{t.priority.name}}
               td {{t.due | date : 'mediumDate' }}
               td: input(type='checkbox', ng-model='t.isComplete')
+
 pre {{tasks | json}}
 

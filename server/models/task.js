@@ -1,12 +1,12 @@
 'use strict';
 
-//var Mongo = require('mongodb');
-var async  = require('async');
+var Mongo = require('mongodb'),
+    async = require('async');
 
 function Task(o){
   this.name  = o.name;
-  this.priority = o.priority;
-  this.due = o.due;
+  this.priority = Mongo.ObjectID(o.priority);
+  this.due = new Date(o.due);
   this.isComplete = false;
 }
 

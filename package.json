@@ -1,17 +1,17 @@
 {
-  "name": "mean-template",
+  "name": "quiktest",
   "version": "0.0.0",
-  "description": "The MEAN Template",
+  "description": "an angular to do list",
   "repository": {
     "type": "git",
-    "url": "https://github.com/chyld/mean-template"
+    "url": "https://github.com/mfbadr/quiktask"
   },
-  "author": "Chyld Medford <chyld.medford@gmail.com>",
+  "author": "Mikey Badr <mfbadr@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/chyld/mean-template/issues"
+    "url": "https://github.com/mfbadr/quiktask"
   },
-  "homepage": "https://github.com/chyld/mean-template",
+  "homepage": "https://github.com/mfbadr/quiktask",
   "dependencies": {
     "async": "^0.9.0",
     "bcrypt": "^0.8.0",

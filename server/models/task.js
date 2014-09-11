@@ -28,6 +28,14 @@ Task.all = function(cb){
   });
 };
 
+Task.toggleCompleted = function(obj, cb){
+  var id = Mongo.ObjectID(obj.id);
+  Task.collection.findOne({_id:id}, function(err, task){
+    task.isComplete = !task.isComplete;
+    Task.collection.save(task, cb);
+  });
+};
+
 module.exports = Task;
 
 function iterator(task, cb){
@@ -36,4 +44,5 @@ function iterator(task, cb){
     cb(null, task);
   });
 }
+
 

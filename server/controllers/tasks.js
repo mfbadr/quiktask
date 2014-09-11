@@ -13,3 +13,9 @@ exports.index = function(req, res){
     res.send({tasks:tasks});
   });
 };
+
+exports.toggleCompleted = function(req, res){
+  Task.toggleCompleted(req.body, function(err, task){
+    res.send({task:task});
+  });
+};

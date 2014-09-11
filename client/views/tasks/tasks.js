@@ -22,6 +22,13 @@
         $scope.task = {};
       });
     };
+
+    $scope.toggleCompleted = function(id){
+      Task.toggleCompleted(id).then(function(response){
+        //debugger;
+      });
+    };
+
   }]);
 })();
 

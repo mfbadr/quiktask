@@ -12,7 +12,12 @@
       return $http.get('/tasks');
     }
 
-    return {create:create, all:all};
+    function toggleCompleted(id){
+      return $http.put('/tasks', {id:id});
+    }
+
+
+    return {toggleCompleted:toggleCompleted, create:create, all:all};
   }]);
 })();
 

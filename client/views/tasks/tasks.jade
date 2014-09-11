@@ -31,7 +31,7 @@ h3 {{title}}
               td {{t.name}}
               td {{t.priority.name}}
               td {{t.due | date : 'mediumDate' }}
-              td: input(type='checkbox', ng-model='t.isComplete')
+              td: input(type='checkbox', ng-model='t.isComplete', ng-click='toggleCompleted(t._id)')
 
 pre {{tasks | json}}
 
